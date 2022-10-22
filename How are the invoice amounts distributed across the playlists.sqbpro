@@ -1,16 +1,10 @@
+SELECT p.name playlist_name, SUM(l.unitprice*l.Quantity) total_invoice_amt
 FROM playlist p
-
 JOIN PlaylistTrack pt
-
 ON pt.PlaylistId = p.PlaylistId
-
 JOIN track t
-
 ON t.TrackId = pt.TrackId
-
 JOIN InvoiceLine l
-
 ON l.TrackId = t.TrackId
-
 GROUP BY 1
-
+ORDER BY 2 DESC;
