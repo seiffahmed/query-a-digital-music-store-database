@@ -10,3 +10,5 @@ How is the invoice amount distributed across
 playlists?
 
 Who is the best customer?
+
+!The repo also has a PDF file having the answers visualized for each question
