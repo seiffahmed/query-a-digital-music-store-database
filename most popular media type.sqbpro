@@ -1,14 +1,8 @@
+SELECT m.Name, COUNT(*) AS times_invoiced
 FROM MediaType m
-
 JOIN track T
-
 ON t.MediaTypeId = m.MediaTypeId
-
 JOIN InvoiceLine I
-
 ON I.TrackId = t.TrackId
-
 GROUP BY 1
-
 ORDER BY 2 DESC;
-
