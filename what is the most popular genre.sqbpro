@@ -1,17 +1,9 @@
+SELECT genre.name,COUNT(Customer.CustomerId) AS Count_Of_Listening
 FROM genre
-
 JOIN Track ON genre.genreId = Track.GenreId
-
 JOIN InvoiceLine ON Track.TrackId = InvoiceLine.TrackId
-
 JOIN Invoice ON InvoiceLine.InvoiceId = Invoice.InvoiceId
-
 JOIN Customer ON Invoice.CustomerId = Customer.CustomerId
-
 GROUP BY Genre.Name
-
 ORDER BY Count_Of_Listening DESC
-
 LIMIT 5;
-
-
