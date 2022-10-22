@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="C:/Users/seiff/Downloads/chinook.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="125"/><column_width id="3" width="5283"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><current_table name="4,5:mainAlbum"/><default_encoding codec=""/><browse_table_settings/></tab_browse><tab_sql><sql name="SQL 1">SELECT genre.name,COUNT(Customer.CustomerId) AS Count_Of_Listening
+FROM genre
+JOIN Track ON genre.genreId = Track.GenreId
+JOIN InvoiceLine ON Track.TrackId = InvoiceLine.TrackId
+JOIN Invoice ON InvoiceLine.InvoiceId = Invoice.InvoiceId
+JOIN Customer ON Invoice.CustomerId = Customer.CustomerId
+GROUP BY Genre.Name
+ORDER BY Count_Of_Listening DESC
+LIMIT 5;
+</sql><sql name="SQL 2">SELECT m.Name, COUNT(*) AS times_invoiced
+FROM MediaType m
+JOIN track T
+ON t.MediaTypeId = m.MediaTypeId
+JOIN InvoiceLine I
+ON I.TrackId = t.TrackId
+GROUP BY 1
+ORDER BY 2 DESC;</sql><sql name="SQL 3">SELECT p.name playlist_name, SUM(l.unitprice*l.Quantity) total_invoice_amt
+FROM playlist p
+JOIN PlaylistTrack pt
+ON pt.PlaylistId = p.PlaylistId
+JOIN track t
+ON t.TrackId = pt.TrackId
+JOIN InvoiceLine l
+ON l.TrackId = t.TrackId
+GROUP BY 1
+ORDER BY 2 DESC;</sql><sql name="SQL 4">SELECT Customer.FirstName || ' '|| Customer.LastName AS FULL_Name, sum(InvoiceLine.UnitPrice) AS price
+FROM Customer
+JOIN Invoice ON Customer.CustomerId = Invoice.CustomerId
+JOIN InvoiceLine ON Invoice.InvoiceId = InvoiceLine.InvoiceId
+GROUP BY FULL_NAME
+ORDER BY price DESC
+LIMIT 5</sql><current_tab id="3"/></tab_sql></sqlb_project>
