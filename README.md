@@ -2,7 +2,7 @@
 
 # Analysis of a digital music store database using SQL to answer the following questions
 
-#The repo also has a PDF file having the answers visualized for each question and four different files for the four queries
+# The repo also has a PDF file having the answers visualized for each question and four different files for the four queries
 
 THE QUESTIONS: 
 
