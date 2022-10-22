@@ -1,6 +1,6 @@
 # query-a-digital-music-store-database
 
-Analysis of a digital music store database using SQL to answer the following questions
+# Analysis of a digital music store database using SQL to answer the following questions
 
 What is the most popular genre?
 
